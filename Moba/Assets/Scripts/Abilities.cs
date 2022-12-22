@@ -5,37 +5,40 @@ using UnityEngine.UI;
 
 public class Abilities : MonoBehaviour
 {
-
+    //Ability 1 Variables
+    [SerializeField]
     [Header("Ability 1")]
-    public Image abilityImage1;
-    public float cooldown1 = 5;
+    private Image abilityImage1;
+    [SerializeField] private float cooldown1 = 5;
     bool isCooldown = false;
-    public KeyCode ability1;
+    [SerializeField] private KeyCode ability1;
 
-    //Ability 1 Input Variables
     Vector3 position;
-    public Canvas ability1Canvas;
-    public Image skillshot;
-    public Transform player;
+    [SerializeField] private Canvas ability1Canvas;
+    [SerializeField] private Image skillshot;
+    [SerializeField] private Transform player;
 
+
+    //Ability 2 Variables
     [Header("Ability 2")]
-    public Image abilityImage2;
-    public float cooldown2 = 10;
+    [SerializeField] private Image abilityImage2;
+    [SerializeField] private float cooldown2 = 10;
     bool isCooldown2 = false;
-    public KeyCode ability2;
+    [SerializeField] private KeyCode ability2;
 
-    //Ability 2 Input Variables
-    public Image targetCircle;
-    public Image indicatorRangeCircle;
-    public Canvas ability2Canvas;
+    [SerializeField] private Image targetCircle;
+    [SerializeField] private Image indicatorRangeCircle;
+    [SerializeField] private Canvas ability2Canvas;
     private Vector3 posUp;
-    public float maxAbility2Distance;
+    [SerializeField] private float maxAbility2Distance;
 
+
+    //Ability 3 Variables
     [Header("Ability 3")]
-    public Image abilityImage3;
-    public float cooldown3 = 7;
+    [SerializeField] private Image abilityImage3;
+    [SerializeField] private float cooldown3 = 7;
     bool isCooldown3 = false;
-    public KeyCode ability3;
+    [SerializeField] private KeyCode ability3;
 
 
     // Start is called before the first frame update
@@ -60,13 +63,13 @@ public class Abilities : MonoBehaviour
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        //Ability 1 Inputs
+        //Skill 1 Inputs
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
             position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
         }
 
-        //Ability 2 Inputs
+        //Skill 2 Inputs
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
             if (hit.collider.gameObject != this.gameObject)
@@ -77,14 +80,12 @@ public class Abilities : MonoBehaviour
         }
 
 
-        //Ability 1 Canvas Inputs
+        //Skill 1 Canvas Inputs
         Quaternion transRot = Quaternion.LookRotation(position - player.transform.position);
-        //transRot.eulerAngles = new Vector3(0, transRot.eulerAngles.y, transRot.eulerAngles.z);
-
         ability1Canvas.transform.rotation = Quaternion.Lerp(transRot, ability1Canvas.transform.rotation, 0f);
         ability1Canvas.transform.Rotate(90f, 0f, 0f);
 
-        //Ability 2 Canvas Inputs
+        //Skill 2 Canvas Inputs
         var hitPosDir = (hit.point - transform.position).normalized;
         float distance = Vector3.Distance(hit.point, transform.position);
         distance = Mathf.Min(distance, maxAbility2Distance);
@@ -131,7 +132,7 @@ public class Abilities : MonoBehaviour
             indicatorRangeCircle.GetComponent<Image>().enabled = true;
             targetCircle.GetComponent<Image>().enabled = true;
 
-            //Disable Skillshot UI
+            //Disable Other UI
             skillshot.GetComponent<Image>().enabled = false;
         }
 
