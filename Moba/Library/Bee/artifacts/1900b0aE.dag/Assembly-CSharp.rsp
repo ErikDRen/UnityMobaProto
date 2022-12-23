@@ -353,9 +353,12 @@
 "Assets/Scripts/CameraFollow.cs"
 "Assets/Scripts/CameraZoom.cs"
 "Assets/Scripts/Health.cs"
+"Assets/Scripts/HeroCombat.cs"
+"Assets/Scripts/InputTargeting.cs"
 "Assets/Scripts/Movement.cs"
 "Assets/Scripts/PlayerAnimator.cs"
 "Assets/Scripts/PlayerHealth.cs"
+"Assets/Scripts/Targetable.cs"
 -langversion:9.0
 
 /deterministic

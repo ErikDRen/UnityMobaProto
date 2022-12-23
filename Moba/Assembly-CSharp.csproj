@@ -63,6 +63,9 @@
     <Compile Include="Assets\Scripts\Abilities.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimator.cs" />
+    <Compile Include="Assets\Scripts\Targetable.cs" />
+    <Compile Include="Assets\Scripts\InputTargeting.cs" />
+    <Compile Include="Assets\Scripts\HeroCombat.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
