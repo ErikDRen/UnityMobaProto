@@ -351,13 +351,17 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Abilities.cs"
 "Assets/Scripts/CameraFollow.cs"
+"Assets/Scripts/CameraRoam.cs"
 "Assets/Scripts/CameraZoom.cs"
+"Assets/Scripts/CamSwitchManager.cs"
+"Assets/Scripts/EnemyHealth.cs"
 "Assets/Scripts/Health.cs"
 "Assets/Scripts/HeroCombat.cs"
 "Assets/Scripts/InputTargeting.cs"
 "Assets/Scripts/Movement.cs"
 "Assets/Scripts/PlayerAnimator.cs"
 "Assets/Scripts/PlayerHealth.cs"
+"Assets/Scripts/Stats.cs"
 "Assets/Scripts/Targetable.cs"
 -langversion:9.0
 

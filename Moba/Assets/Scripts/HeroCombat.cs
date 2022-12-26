@@ -11,14 +11,20 @@ public class HeroCombat : MonoBehaviour
     [SerializeField] float rotateSpeedForAttack;
     private Movement moveScript;
     [SerializeField] bool basicAtkIdle = false;
-    [SerializeField] public bool isHeroAlive;
-    [SerializeField] bool performMeleeAttack = true;
+    public bool isHeroAlive;
+    public bool performMeleeAttack = true;
     public GameObject targetedEnemy;
+
+    Stats statsScript;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        moveScript = GetComponent<Movement>();    
+        moveScript = GetComponent<Movement>();
+
+        statsScript = GetComponent<Stats>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,12 +53,40 @@ public class HeroCombat : MonoBehaviour
                 {
                     if(performMeleeAttack)
                     {
-                        Debug.Log("Atk!!!");
-                            //Start couroutine
-                        
+                        //Debug.Log("Atk!!!");
+
+                        //Start couroutine
+                        StartCoroutine(MeleeAttackInterval());
                     }
                 }
             }
         }
     }
+
+    IEnumerator MeleeAttackInterval()
+    {
+        performMeleeAttack = false;
+        anim.SetBool("Basic Attack", true);
+
+        yield return new WaitForSeconds(statsScript.attackTime / ((100 + statsScript.attackTime) * 0.01f));
+
+        if(targetedEnemy == null)
+        {
+            anim.SetBool("Basic Attack", false);
+            performMeleeAttack = true;
+        }
+    }
+
+    public void MeleeAttack()
+    {
+        if(targetedEnemy != null)
+        {
+            if(targetedEnemy.GetComponent<Targetable>().enemyType == Targetable.EnemyType.Minion)
+            {
+                targetedEnemy.GetComponent<Stats>().health -= statsScript.attackDmg;
+            }
+        }
+        performMeleeAttack = true;
+    }
+
 }

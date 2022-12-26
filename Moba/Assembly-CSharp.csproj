@@ -59,13 +59,17 @@
     <Compile Include="Assets\Scripts\CameraZoom.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\Scripts\Targetable.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\Abilities.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Scripts\PlayerAnimator.cs" />
-    <Compile Include="Assets\Scripts\Targetable.cs" />
-    <Compile Include="Assets\Scripts\InputTargeting.cs" />
     <Compile Include="Assets\Scripts\HeroCombat.cs" />
+    <Compile Include="Assets\Scripts\InputTargeting.cs" />
+    <Compile Include="Assets\Scripts\PlayerAnimator.cs" />
+    <Compile Include="Assets\Scripts\Stats.cs" />
+    <Compile Include="Assets\Scripts\EnemyHealth.cs" />
+    <Compile Include="Assets\Scripts\CameraRoam.cs" />
+    <Compile Include="Assets\Scripts\CamSwitchManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

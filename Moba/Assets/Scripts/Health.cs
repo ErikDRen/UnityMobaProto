@@ -7,20 +7,26 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private Slider playerSlider3D;
     Slider playerSlider2D;
-    [SerializeField] int health;
+
+    Stats statsScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        statsScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Stats>();
+
         playerSlider2D = GetComponent<Slider>();
-        playerSlider2D.maxValue = health;
-        playerSlider3D.maxValue = health;
+
+        playerSlider3D.maxValue = statsScript.maxHealth;
+        playerSlider2D.maxValue = statsScript.maxHealth;
+        statsScript.health = statsScript.maxHealth;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerSlider2D.value = health;
+        playerSlider2D.value = statsScript.health;
         playerSlider3D.value = playerSlider2D.value;
     }
 }
