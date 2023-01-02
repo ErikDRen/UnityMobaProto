@@ -70,7 +70,7 @@
     <Compile Include="Assets\Scripts\HeroCombat.cs" />
     <Compile Include="Assets\Scripts\InputTargeting.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimator.cs" />
-    <Compile Include="Assets\Scripts\Control.cs" />
+    <Compile Include="Assets\Scripts\GetPlayerPosition.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

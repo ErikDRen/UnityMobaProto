@@ -18,6 +18,11 @@ public class HeroCombat : MonoBehaviour
     Stats statsScript;
     Animator anim;
 
+    [SerializeField] ParticleSystem particles;
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,8 +62,10 @@ public class HeroCombat : MonoBehaviour
 
                         //Start couroutine
                         StartCoroutine(MeleeAttackInterval());
+                        
                     }
                 }
+                
             }
         }
     }
@@ -74,6 +81,7 @@ public class HeroCombat : MonoBehaviour
         {
             anim.SetBool("Basic Attack", false);
             performMeleeAttack = true;
+            
         }
     }
 
@@ -84,6 +92,10 @@ public class HeroCombat : MonoBehaviour
             if(targetedEnemy.GetComponent<Targetable>().enemyType == Targetable.EnemyType.Minion)
             {
                 targetedEnemy.GetComponent<Stats>().health -= statsScript.attackDmg;
+                targetedEnemy.GetComponent<Animator>().SetBool("isTaper", true);
+                particles.transform.position = targetedEnemy.transform.position;
+                particles.Play();
+
             }
         }
         performMeleeAttack = true;

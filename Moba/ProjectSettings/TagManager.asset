@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Floor
+  - grongron
   layers:
   - Default
   - TransparentFX

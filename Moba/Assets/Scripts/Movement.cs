@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour
     private HeroCombat heroCombatScript;
     [SerializeField] ParticleSystem particles;
 
+    GameObject grongron;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +67,8 @@ public class Movement : MonoBehaviour
                         rotateSpeedMovement * (Time.deltaTime * 5));
 
                     transform.eulerAngles = new Vector3(0, rotationY, 0);
+                    grongron = GameObject.FindGameObjectWithTag("Enemy");
+                    grongron.GetComponent<Animator>().SetBool("isTaper", false);
 
                 }
 
