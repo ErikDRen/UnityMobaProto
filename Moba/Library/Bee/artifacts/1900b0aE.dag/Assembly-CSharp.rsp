@@ -354,6 +354,7 @@
 "Assets/Scripts/CameraRoam.cs"
 "Assets/Scripts/CameraZoom.cs"
 "Assets/Scripts/CamSwitchManager.cs"
+"Assets/Scripts/Control.cs"
 "Assets/Scripts/EnemyHealth.cs"
 "Assets/Scripts/Health.cs"
 "Assets/Scripts/HeroCombat.cs"

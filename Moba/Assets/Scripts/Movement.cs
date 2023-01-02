@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     public float rotateVelocity;
 
     private HeroCombat heroCombatScript;
+    [SerializeField] ParticleSystem particles;
 
     // Start is called before the first frame update
     void Start()
@@ -43,13 +44,18 @@ public class Movement : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
             {
+               
 
-                if(hit.collider.tag == "Floor")
+                if (hit.collider.tag == "Floor")
                 {                
                     //Move to the raycast point
                     agent.SetDestination(hit.point);
                     heroCombatScript.targetedEnemy = null;
                     agent.stoppingDistance = 0;
+
+
+                    particles.Play();
+                    particles.transform.position = new Vector3(hit.point.x,0f, hit.point.z);
 
                     //Rotation
                     Quaternion rotationToLookAt = Quaternion.LookRotation(hit.point - transform.position);
@@ -64,5 +70,6 @@ public class Movement : MonoBehaviour
 
             }
         }
+        
     }
 }
