@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Abilities : MonoBehaviour
 {
+    GameObject gentil;
+
     //Ability 1 Variables
     [SerializeField]
     [Header("Ability 1")]
@@ -44,6 +46,8 @@ public class Abilities : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gentil = GameObject.FindGameObjectWithTag("Player");
+
         abilityImage1.fillAmount = 0;
         abilityImage2.fillAmount = 0;
         abilityImage3.fillAmount = 0;
@@ -99,6 +103,7 @@ public class Abilities : MonoBehaviour
     {
         if (Input.GetKey(ability1) && isCooldown == false)
         {
+           
             skillshot.GetComponent<Image>().enabled = true;
 
             //Disable Other UI
@@ -110,13 +115,18 @@ public class Abilities : MonoBehaviour
         {
             isCooldown = true;
             abilityImage1.fillAmount = 1;
+            gentil.GetComponent<Animator>().SetTrigger("Piou");
         }
 
         if (isCooldown)
         {
+            
             abilityImage1.fillAmount -= 1 / cooldown1 * Time.deltaTime;
             skillshot.GetComponent<Image>().enabled = false;
 
+            {
+
+            }
             if (abilityImage1.fillAmount <= 0)
             {
                 abilityImage1.fillAmount = 0;

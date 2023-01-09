@@ -10,6 +10,8 @@ public class Stats : MonoBehaviour
     [SerializeField] float attackSpeed;
     public float attackTime;
     HeroCombat heroCombatScript;
+    Spawn spawnScript;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +22,10 @@ public class Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(health <= 0)
         {
+            
             Destroy(gameObject);
             heroCombatScript.targetedEnemy = null;
             heroCombatScript.performMeleeAttack = false;

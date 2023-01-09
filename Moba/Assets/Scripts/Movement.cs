@@ -68,9 +68,13 @@ public class Movement : MonoBehaviour
 
                     transform.eulerAngles = new Vector3(0, rotationY, 0);
                     grongron = GameObject.FindGameObjectWithTag("Enemy");
-                    grongron.GetComponent<Animator>().SetBool("isTaper", false);
+                    if(grongron != null)
+                    {
+                        grongron.GetComponent<Animator>().SetBool("isTaper", false);
+                    }
 
                 }
+
 
             }
         }
